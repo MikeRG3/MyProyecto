@@ -1,0 +1,14 @@
+<div class="row">
+<h1 class="m-3 col-sm-6">Equipo de trabajo</h1>
+<button class="btn btn-secondary m-3 col-sm-2" (click)="mostrarContratados()">Mostrar contratados</button>
+<button class="btn btn-success m-3 col-sm-2" (click)="mostrar=false">Mostrar disponibles</button>
+</div>
+<ul class="list-group my-3" *ngFor="let p of personas, index as i" >
+	<p *ngIf="p.contratado==mostrar">
+  <li class="list-group-item" [ngClass]="p.contratado ? 'bg-secondary' : 'bg-success'"  >Nombre: <b>{{p.nombre}}</b>
+  <span class="text-white" [routerLink]="['/equipo',i]"> Pincha para ver más...</span></li>
+  <li class="list-group-item" >Edad: {{p.edad}}</li>
+  <li class="list-group-item" >Especialidad: {{p.especialidad}}</li>
+  <li class="list-group-item" >{{p.contratado ? 'Contratado' : 'Disponible'}}</li>
+ 	</p>
+</ul>
